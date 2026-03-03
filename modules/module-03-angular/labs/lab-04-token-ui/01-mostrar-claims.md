@@ -57,7 +57,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-protected',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, JsonPipe],
   template: `
     <h2>Protected Area</h2>
 
