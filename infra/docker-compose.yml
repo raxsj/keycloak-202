@@ -1,20 +1,33 @@
 
 services:
-  # angular-app:
-  #   image: node:latest
-  #   command:
-  #     - sh
-  #     - -c
-  #     - |
-  #       npm install && npm run start
-  #   working_dir: /app
-  #   ports:
-  #     - "4200:4200"
-  #   volumes:
-  #     - ../apps/angular-app_/:/app   
+  angular-app:
+    image: node:latest
+    command:
+      - sh
+      - -c
+      - |
+        npm install && npm run start
+    working_dir: /app
+    ports:
+      - "4200:4200"
+    volumes:
+      - ../apps/angular-app_/:/app   
   #   # depends_on:
   #   #   - keycloak
-
+  api-node:
+    image: node:latest
+    command:
+      - sh
+      - -c
+      - |
+        npm install && npm start
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../apps/api-node_/:/app   
+    # depends_on:
+    #   - keycloak  
   keycloak:
     image: quay.io/keycloak/keycloak:latest
     command:
